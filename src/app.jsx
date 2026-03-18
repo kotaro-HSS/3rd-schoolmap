@@ -463,7 +463,7 @@ export default function App() {
             <div className="flex-1">
               <button onClick={() => setShowEndConfirm(true)} disabled={route.length === 0}
                 className={`w-full py-2 rounded-xl shadow-sm transition text-center ${route.length === 0 ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-red-500 text-white hover:bg-red-600"}`}>
-                ナビを終了する
+                ナビを終了
               </button>
             </div>
           </div>
