@@ -7,33 +7,31 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # ① リポジトリ取得
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ② Node.jsセットアップ
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # ③ 依存関係インストール
       - name: Install dependencies
         run: npm install
 
-      # ④ ビルド
       - name: Build
         run: npm run build
 
-      # ⑤ GitHub Pagesへデプロイ
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          
